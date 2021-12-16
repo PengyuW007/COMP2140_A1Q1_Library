@@ -43,7 +43,11 @@ public class A1Q1 {
         String[] tokens = line.split(",");
 
         if (command.equals("ADD")) {
-
+            String last = tokens[0];
+            String first = tokens[1];
+            String title = tokens[2];
+            library.addBook(last,first,title);
+            //System.out.println(library.getNumBooks());
         } else if (command.equals("SEARCHA")) {
 
         } else if (command.equals("SEARCHT")) {
