@@ -16,6 +16,8 @@ public class Book {
     }
 
     public String getFirst() {
+        if(first.trim().isEmpty())//if this is space not any string
+            first = "unknown";
         return first;
     }
 

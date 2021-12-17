@@ -30,6 +30,8 @@ public class A1Q1 {
         } catch (IOException e) {
             System.out.println("\nError reading file: " + filename);
         }//end try-catch
+
+        System.out.println("Program terminated normally.");
     }//end simulationLibrary
 
     public static void processLine(String nextLine, Library library) {
@@ -46,9 +48,17 @@ public class A1Q1 {
             String last = tokens[0];
             String first = tokens[1];
             String title = tokens[2];
-            library.addBook(last,first,title);
+            library.addBook(last, first, title);
             //System.out.println(library.getNumBooks());
         } else if (command.equals("SEARCHA")) {
+            String last = tokens[0];
+            ArrayList<Book> books = library.listByAuthor(last);
+
+            for (int i = 0; i < books.size(); i++) {
+                Book book = books.get(i);
+                String currLine = book.getLast()+", "+book.getFirst()+", "+book.getTitle();
+                System.out.println(currLine.trim());
+            }
 
         } else if (command.equals("SEARCHT")) {
 
@@ -56,6 +66,8 @@ public class A1Q1 {
 
         } else if (command.equals("RETURNBOOK")) {
 
+        } else {
+            System.out.println("Unknown command!");
         }
 
     }
