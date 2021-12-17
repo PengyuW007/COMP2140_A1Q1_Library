@@ -56,16 +56,34 @@ public class A1Q1 {
 
             for (int i = 0; i < books.size(); i++) {
                 Book book = books.get(i);
-                String currLine = book.getLast()+", "+book.getFirst()+", "+book.getTitle();
+                String currLine = book.getLast() + ", " + book.getFirst() + ", " + book.getTitle();
                 System.out.println(currLine.trim());
             }
-
+            System.out.println();
         } else if (command.equals("SEARCHT")) {
+            String title = tokens[0];
+            ArrayList<Book> books = library.listByTitle(title);
 
+            for (int i = 0; i < books.size(); i++) {
+                Book book = books.get(i);
+                String currLine = book.getLast() + ", " + book.getFirst() + ", " + book.getTitle();
+                System.out.println(currLine.trim());
+            }
+            System.out.println();
         } else if (command.equals("GETBOOK")) {
+            String last = tokens[0];
+            String title = tokens[1];
 
+            library.loanBook(last, title);
+
+            System.out.println();
         } else if (command.equals("RETURNBOOK")) {
+            String last = tokens[0];
+            String title = tokens[1];
 
+            library.returnBook(last,title);
+
+            System.out.println();
         } else {
             System.out.println("Unknown command!");
         }

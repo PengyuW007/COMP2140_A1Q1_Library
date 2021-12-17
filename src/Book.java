@@ -11,6 +11,10 @@ public class Book {
         loan = false;
     }
 
+    public Book() {
+
+    }
+
     public String getTitle() {
         return title;
     }
